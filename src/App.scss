@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Belanosima&family=Roboto:wght@500&display=swap');
+
+.App {
+    font-family: 'Belanosima', sans-serif !important;
+}
+
+.containerha {
+    padding: 24px 24px;
+}
+
+.taskitem {
+    border-radius: 5px;
+    border: 2px solid #230c60;
+    padding: 10px 10px;
+    margin-bottom: 30px;
+    & .taskitem__title {
+        font-size: 18px;
+        font-weight: 600;
+    }
+    & .taskitem__creator {
+        font-size: 16px;
+    }
+    & .taskitem__status {
+        font-size: 16px;
+        font-weight: 600;
+    }
+    & .new {
+        color: rgb(14, 164, 19);
+    }
+    & .doing {
+        color: rgb(196, 212, 24);
+    }
+    & .done {
+        color: aqua;
+    }
+    & .taskitem__detail {
+        white-space: nowrap; 
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    & .taskitem__des {
+        font-size: 16px;
+        font-weight: 600;
+    }
+}

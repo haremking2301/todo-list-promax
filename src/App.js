@@ -1,23 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import './App.scss';
+import SearchComponent from './Components/Search/Search';
+import { Col, Row } from 'antd';
+import SibarComponent from './Components/Sidebar/Sibar';
+import { Route, Routes } from 'react-router-dom';
+import AllTaskPage from './Pages/AllTask/Alltask';
+import NewTaskPage from './Pages/NewTask/NewTask';
+import DoingTaskPage from './Pages/DoingTask/DoingTask';
+import DoneTaskPage from './Pages/DoneTask/DoneTask';
+import { APP_ROUTES } from './constant/routes';
+import AddTask1Page from './Pages/AddTask/AddTask1';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <SearchComponent></SearchComponent>
+      <Row>
+        <Col className='left' span={4}>
+          <SibarComponent></SibarComponent>
+        </Col>
+        <Col className='right' span={20}>
+          <Routes>
+            <Route path={APP_ROUTES.ADD_TASK} element={<AddTask1Page></AddTask1Page>}></Route>
+            <Route path={APP_ROUTES.ALL_TASK} element={<AllTaskPage></AllTaskPage>}></Route>
+            <Route path={APP_ROUTES.NEW_TASK} element={<NewTaskPage></NewTaskPage>}></Route>
+            <Route path={APP_ROUTES.DOING_TASK} element={<DoingTaskPage></DoingTaskPage>}></Route>
+            <Route path={APP_ROUTES.DONE_TASK} element={<DoneTaskPage></DoneTaskPage>}></Route>
+          </Routes>
+        </Col>
+      </Row>
     </div>
   );
 }
