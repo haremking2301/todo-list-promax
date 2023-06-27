@@ -11,3 +11,34 @@ p {
     font-size: 16px;
     font-weight: 500;
 }
+
+.hiden {
+    display: none;
+}
+
+.unhiden {
+    display: block;
+}
+
+.btn {
+    margin: 0 10px;
+}
+
+.btnc {
+    width: 16px;
+    height: 16px;
+    margin: 20px 20px;
+}
+
+.span {
+    margin: 0 20px;
+}
+
+.invalid {
+    color: rgb(180, 24, 18);
+    display: none;
+}
+
+.fill {
+    display: block;
+}
