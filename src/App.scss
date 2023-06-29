@@ -2,6 +2,7 @@
 
 .App {
     font-family: 'Belanosima', sans-serif !important;
+    position: relative;
 }
 
 .containerha {
@@ -42,8 +43,4 @@
         font-size: 16px;
         font-weight: 600;
     }
-}
-
-.loading {
-    margin: 250px auto;
 }

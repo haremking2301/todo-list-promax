@@ -6,6 +6,7 @@ const initialState = {
     isLoading: false,
     search: '',
     pagenumber: 0,
+    totalPages: 0,
 }
 
 export const getTasksReducer = createSlice({
@@ -24,7 +25,8 @@ export const getTasksReducer = createSlice({
             state.isLoading = true;
         });
         builder.addCase(getTasksThunk.fulfilled, (state, action) => {
-            state.dataTasks = action.payload
+            state.dataTasks = action.payload.data
+            state.totalPages = action.payload.headers["x-total-count"]
             state.isLoading = false;
         });
     }
@@ -32,11 +34,11 @@ export const getTasksReducer = createSlice({
 
 export const getTasksThunk = createAsyncThunk('getTasks/getTasksThunk', async function(params) {
     const res = await api.getAllTasks(params)
-    return res.data
+    return res
 })
 
 export const postTasksThunk = createAsyncThunk('postTasks/postTasksThunk', async function(data) {
-    await api.postTask(data)
+    return await api.postTask(data)
 })
 
 

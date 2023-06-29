@@ -9,13 +9,14 @@ import { Spin } from 'antd';
 
 function AllTaskPage() {
   const search = useSelector((state)=> state.getTasks.search)
+  const totalPages = useSelector((state)=> state.getTasks.totalPages)
 
   const antIcon = <LoadingOutlined className='loading' style={{ fontSize: 36 }} spin />;
   const [page, setPage] = useState({
     crp: 1,
     limit: 8,
-    total: 40,
   })
+
   const dispatch = useDispatch()
 
   useEffect(() => {
@@ -24,10 +25,6 @@ function AllTaskPage() {
       _limit: page.limit,
       q: search
     }))
-    // setPage({
-    //   ...page,
-    //   total: dataAllTasks.headers["x-total-count"]
-    // })
   }, [page.crp])
 
   const handleChangePage = (number) => {
@@ -64,7 +61,7 @@ function AllTaskPage() {
       <Row justify={'center'}>
         <Col offset={10} span={16}>
           <Pagination 
-            total={page.total}
+            total={totalPages}
             defaultPageSize={page.limit}
             pageSize={page.limit}
             defaultCurrent={page.crp} 

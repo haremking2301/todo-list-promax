@@ -3,6 +3,7 @@ import { Col, Row, Button } from 'antd'
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux';
 import { postTasksThunk } from '../../Redux/reducers/getTaskReducer';
+import { format } from 'date-fns';
 
 function AddTask1Page() {
     const dispatch = useDispatch()
@@ -76,7 +77,7 @@ function AddTask1Page() {
                 <Col span={12}>
                     <input type='text' name='title' onChange={handleOnChange} value={form.title}></input>
                     <input type='text' name='creator' onChange={handleOnChange} value={form.creator}></input>
-                    <input type='text' name='created' onChange={handleOnChange} value={form.created}></input>
+                    <input disabled value={format(new Date(), 'yyyy-MM-dd HH:mm')}></input>
                     <input type='text' name='description' onChange={handleOnChange} value={form.description}></input>
                 </Col>
             </Row>
